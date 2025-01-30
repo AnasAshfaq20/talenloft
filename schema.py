@@ -72,8 +72,3 @@ candidate_skills = Table(
     Column('candidate_id', ForeignKey('candidates.id'), primary_key=True),
     Column('skill_id', ForeignKey('skills.id'), primary_key=True)
 )
-
-# ---- Database Connection ----
-DATABASE_URL = "postgresql://postgres:anasdb25@localhost:5432/talentloft"
-engine = create_engine(DATABASE_URL)
-Base.metadata.create_all(engine)
