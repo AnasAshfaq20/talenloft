@@ -5,13 +5,9 @@ from schema import (
     Job, Candidate, Skill, LocationType,
     SkillLevel, CareerPreference, Availability
 )
-import os
-from dotenv import load_dotenv
-
-load_dotenv()
 
 # Database connection
-DATABASE_URL = os.getenv("DATABASE_URL", "postgresql://postgres:anasdb25@localhost:5432/talentloft")
+DATABASE_URL = "postgresql://postgres:anasdb25@localhost:5432/talentloft"
 engine = create_engine(DATABASE_URL)
 Session = sessionmaker(bind=engine)
 session = Session()
