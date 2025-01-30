@@ -73,6 +73,10 @@ def validate_experience(exp):
     except (TypeError, ValueError):
         raise ValueError("Experience must be a positive integer")
 
+# Add this helper function after the other helper functions
+def format_skills(skills):
+    return ", ".join([f"{s.skill_group} ({s.skill_level.name})" for s in skills])
+
 # Candidate Section
 if menu == "For Candidates ➡️":
     st.header("Candidate Portal")
@@ -152,6 +156,7 @@ if menu == "For Candidates ➡️":
                 
                 for job, score in matches[:5]:
                     st.write(f"**{job.title}**")
+                    st.write(f"Skills: {format_skills(job.skills)}")
                     st.write(f"Score: {score:.1f} | 💰 {job.salary_min}-{job.salary_max}$")
                     st.write(f"📍 {job.location_type} | 📅 {job.availability}")
                     st.write("---")
@@ -244,6 +249,7 @@ elif menu == "For Employers 🏢":
                     
                     for candidate, score in matches[:5]:
                         st.write(f"**{candidate.username}**")
+                        st.write(f"Skills: {format_skills(candidate.skills)}")
                         st.write(f"Score: {score:.1f} | 💰 {candidate.expected_salary_min}-{candidate.expected_salary_max}$")
                         st.write(f"📍 {candidate.preferred_location} | 🎯 {candidate.career_preference}")
                         st.write("---")
@@ -272,6 +278,8 @@ elif menu == "Find Matches 🔍":
                 
                 for candidate, score in matches[:10]:
                     st.write(f"**{candidate.username}** (Score: {score:.1f})")
+                    st.write(f"Skills: {format_skills(candidate.skills)}")
+                    st.write("---")
             else:
                 st.error("Job not found!")
     
@@ -287,6 +295,7 @@ elif menu == "Find Matches 🔍":
                 
                 for job, score in matches[:10]:
                     st.write(f"**{job.title}** (Score: {score:.1f})")
+                    st.write(f"Skills: {format_skills(job.skills)}")
+                    st.write("---")
             else:
                 st.error("Candidate not found!")
-
