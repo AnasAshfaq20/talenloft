@@ -7,7 +7,7 @@ from schema import (
 )
 
 # Database connection
-DATABASE_URL = "postgresql://postgres:anasdb25@localhost:5432/talentloft"
+DATABASE_URL = "postgresql://postgres:yHeubsPBeSzgAZISMMRSxomBAphcyIUI@junction.proxy.rlwy.net:16146/railway"
 engine = create_engine(DATABASE_URL)
 Session = sessionmaker(bind=engine)
 session = Session()
