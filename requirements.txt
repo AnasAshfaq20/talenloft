@@ -1,6 +1,6 @@
 streamlit==1.31.0
 sqlalchemy==2.0.19
-psycopg2
+psycopg2-binary
 python-dotenv==1.0.0
 pillow==10.2.0
 gunicorn
